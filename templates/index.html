@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockVerify | Certificate Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="header">
+        <div class="brand">Block<span>Verify</span></div>
+        <p>Blockchain-Based Certificate Verification</p>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="tag">SHA-256 • Blockchain Technology</div>
+            <h1>Verify Certificates with Confidence</h1>
+            <p>Register certificate details and verify their integrity using a blockchain-inspired system.</p>
+        </section>
+
+        <section class="cards">
+            <div class="card">
+                <h2>Register Certificate</h2>
+                <p class="description">Register a certificate fingerprint on the blockchain.</p>
+
+                <form id="registerForm">
+                    <label for="regId">Certificate ID</label>
+                    <input id="regId" name="certificate_id" type="text"
+                           placeholder="e.g. CERT-2026-001" required>
+
+                    <label for="regStudent">Student Name</label>
+                    <input id="regStudent" name="student_name" type="text"
+                           placeholder="Enter student name" required>
+
+                    <label for="regCourse">Course Name</label>
+                    <input id="regCourse" name="course_name" type="text"
+                           placeholder="e.g. Cybersecurity" required>
+
+                    <label for="regIssuer">Issuing Organization</label>
+                    <input id="regIssuer" name="issuer_name" type="text"
+                           placeholder="e.g. ABC Institute" required>
+
+                    <label for="regDate">Issue Date</label>
+                    <input id="regDate" name="issue_date" type="date" required>
+
+                    <button type="submit">Register Certificate</button>
+                </form>
+
+                <div id="registerResult" class="result" aria-live="polite"></div>
+            </div>
+
+            <div class="card">
+                <h2>Verify Certificate</h2>
+                <p class="description">Enter the certificate details to check whether they match the registered record.</p>
+
+                <form id="verifyForm">
+                    <label for="verifyId">Certificate ID</label>
+                    <input id="verifyId" name="certificate_id" type="text"
+                           placeholder="Enter certificate ID" required>
+
+                    <label for="verifyStudent">Student Name</label>
+                    <input id="verifyStudent" name="student_name" type="text"
+                           placeholder="Enter student name" required>
+
+                    <label for="verifyCourse">Course Name</label>
+                    <input id="verifyCourse" name="course_name" type="text"
+                           placeholder="Enter course name" required>
+
+                    <label for="verifyIssuer">Issuing Organization</label>
+                    <input id="verifyIssuer" name="issuer_name" type="text"
+                           placeholder="Enter issuing organization" required>
+
+                    <label for="verifyDate">Issue Date</label>
+                    <input id="verifyDate" name="issue_date" type="date" required>
+
+                    <button type="submit" class="verify-button">Verify Certificate</button>
+                </form>
+
+                <div id="verifyResult" class="result" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="chain-section">
+            <div>
+                <h2>Blockchain Explorer</h2>
+                <p class="description">Inspect registered certificate hashes and block links.</p>
+            </div>
+
+            <button id="chainButton" class="secondary-button" type="button">
+                View Blockchain
+            </button>
+
+            <div id="chainResult" aria-live="polite"></div>
+        </section>
+
+        <footer>
+            Educational project • Python • Flask • SHA-256
+        </footer>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
